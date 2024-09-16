@@ -2,3 +2,14 @@ name: backenddrupalproject
 recipe: drupal9
 config:
   webroot: web
+
+services:
+  appserver:
+    type: php:8.1
+    ssl: true
+    xdebug: false
+
+proxy:
+  appserver:
+    - backenddrupalproject.lndo.site:80
+    - backenddrupalproject.lndo.site:443:ssl
