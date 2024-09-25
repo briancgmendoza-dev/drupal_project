@@ -1,0 +1,6 @@
+public_config.admin_settings:
+  title: 'Public Config Settings'
+  description: 'Configure Public Config settings'
+  parent: system.admin_config_system
+  route_name: public_config.settings
+  weight: 100

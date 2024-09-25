@@ -1,0 +1,4 @@
+services:
+  live_event.client:
+    class: Drupal\live_event\Services\LiveEventClient
+    arguments: ['@database']

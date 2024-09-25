@@ -1,0 +1,74 @@
+<?php
+
+use Drupal\Core\Database\Connection;
+
+/**
+ * Implements hook_install().
+ */
+ function live_event_install() {
+      $values = [
+        [
+          'user_id' => 2,
+          'first_name' => 'Boy',
+          'last_name' => 'Pickup',
+          'mobile_no' => '09123456789',
+          'link' => 'www.youtube.com'
+        ],
+        [
+          'user_id' => 4,
+          'first_name' => 'User',
+          'last_name' => 'Four',
+          'mobile_no' => '09987654321',
+          'link' => 'www.google.com'
+        ]
+      ];
+
+      $database = \Drupal::database();
+      $query = $database->insert('live_event_table')->fields(['user_id', 'first_name', 'last_name', 'mobile_no', 'link']);
+      foreach ($values as $user) {
+        $query->values($user);
+      }
+      $query->execute();
+ }
+
+/**
+ * Implements hook_schema().
+ */
+function live_event_schema(): array {
+    $schema['live_event_table'] = [
+        'description' => 'Table for live event links.',
+        'fields' => [
+            'user_id' => [
+                'type' => 'int',
+                'not null' => TRUE,
+                'description' => 'User ID.',
+            ],
+            'first_name' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'description' => 'First name of the user.',
+            ],
+            'last_name' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'description' => 'Last name of the user.',
+            ],
+            'mobile_no' => [
+                'type' => 'varchar',
+                'length' => 15,
+                'not null' => TRUE,
+                'description' => 'Mobile number of the user.',
+            ],
+            'link' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'description' => 'Link for the live event.',
+            ],
+        ],
+        'primary key' => ['user_id'],
+    ];
+    return $schema;
+}

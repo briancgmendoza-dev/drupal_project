@@ -1,0 +1,7 @@
+public_config.settings:
+  path: '/admin/config/system/public-config'
+  defaults:
+    _form: '\Drupal\public_config\Form\PublicConfigSettingsForm'
+    _title: 'Public Config Settings'
+  requirements:
+    _permission: 'administer site configuration'

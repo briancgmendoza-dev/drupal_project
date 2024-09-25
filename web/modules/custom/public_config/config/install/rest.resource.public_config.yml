@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - public_config
+id: public_config
+plugin_id: 'public_config'
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie
