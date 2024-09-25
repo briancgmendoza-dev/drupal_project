@@ -9,7 +9,7 @@ services:
     ssl: true
     xdebug: false
 
-proxy:
-  appserver:
-    - backenddrupalproject.lndo.site:80
-    - backenddrupalproject.lndo.site:443:ssl
+# proxy:
+#   appserver:
+#     - backenddrupalproject.lndo.site:80
+    # - backenddrupalproject.lndo.site:443:ssl
