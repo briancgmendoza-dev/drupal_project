@@ -1,0 +1,8 @@
+name: Live Event
+type: module
+description: 'Live Event'
+core_version_requirement: ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:rest
+  - drupal:serialization
